@@ -1,0 +1,87 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.left div,
+.hand {
+  position: relative;
+}
+.right {
+  position: relative;
+}
+
+.comma {
+  position: absolute;
+  top: 0px;
+  left: -18px;
+}
+.heading-font {
+  font-size: 35px;
+}
+
+.image-wrapper {
+  width: 180px;
+  height: 180px;
+}
+.resume-pick {
+  border-radius: 50%;
+}
+/* hero icon style start here */
+.react-icon {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 80px;
+  color: aqua;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(84, 84, 239);
+}
+.node-icon {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-size: 80px;
+  color: rgb(44, 238, 5);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(12, 165, 73, 0.752);
+}
+.mongo-icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 80px;
+  color: rgb(44, 238, 5);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(12, 165, 73, 0.752);
+}
+.express-icon {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-size: 80px;
+  color: rgb(44, 238, 5);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(12, 165, 73, 0.752);
+}
+
+/* hero icon style end here */
