@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div style={{ height: "100vh" }} className="w-100 bg-danger" id="about">
+    <div style={{ height: "100vh" }} id="about">
       About
     </div>
   );
