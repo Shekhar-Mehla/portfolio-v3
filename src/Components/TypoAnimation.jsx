@@ -26,7 +26,7 @@ const TypoAnimation = () => {
         fontSize: "2rem",
         textDecorationLine: "underline",
         textUnderlineOffset: "10px",
-        letterSpacing: "2px",
+        letterSpacing: "1px",
         color: textColor,
 
         display: "inline-block",

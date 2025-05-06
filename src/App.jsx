@@ -12,7 +12,7 @@ import "./App.css";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="bg-gray-800">
+      <div className="bg-gray-800 px-5 flex flex-col gap-10">
         <Header></Header>
         <Hero></Hero>
         <About></About>
