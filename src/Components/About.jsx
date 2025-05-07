@@ -22,7 +22,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="text-gray-100 text-2xl">
+        <div className="text-gray-50 text-xl">
           I am <span className="text-sky-600">Shekhar Singh</span>, a recent
           graduate specializing in the MERN stack. I’m passionate about creating
           user-friendly apps with MongoDB, Express.js, React.js, and Node.js. I
@@ -32,9 +32,9 @@ const About = () => {
           working on innovative solutions. I’m also excited to mentor others and
           contribute to open-source projects.
         </div>
-        <div className="flex items-center justify-center text-gray-100 h-5  font-bold">
-          <Link className=" text-2xl bg-sky-600 ring ring-green-300 ring-4 p-3 ">
-            Let Connect
+        <div className="flex items-center justify-center text-gray-100 mt-4 font-bold">
+          <Link class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+            Lets Connect
           </Link>
         </div>
       </div>

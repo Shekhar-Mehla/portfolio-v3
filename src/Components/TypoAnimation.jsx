@@ -26,6 +26,7 @@ const TypoAnimation = () => {
         fontSize: "2rem",
         textDecorationLine: "underline",
         textUnderlineOffset: "10px",
+        textDecorationColor: "oklch(58.8% 0.158 241.966)",
         letterSpacing: "1px",
         color: textColor,
 
