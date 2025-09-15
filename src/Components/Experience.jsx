@@ -7,9 +7,7 @@ const Experience = () => {
   return (
     <div id="experince">
       <div className="p-3 flex gap-3 flex-col ">
-        <div className=" font-bold text-4xl text-amber-400 underline underline-offset-[10px] decoration-sky-600">
-          Experince
-        </div>
+        <div className=" font-bold text-4xl text-amber-400 ">Experince</div>
         {/* expeirnce section div */}
         <div className="parnet flex py-4 px-2.5 text-gray-50">
           <div className="flex md:text-2xl text-1xl justify-between items-center w-full ">

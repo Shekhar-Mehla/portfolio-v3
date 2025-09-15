@@ -66,7 +66,7 @@ const Hero = () => {
 
         <div className="relative  shrink-0  flex justify-center basis-1/2">
           <img
-            class="object-cover w-full rounded-full h-96 md:h-auto md:w-100  "
+            class="object-cover w-full rounded-full h-96 md:h-auto md:w-100   "
             src={resumeImg}
             alt=""
           ></img>
