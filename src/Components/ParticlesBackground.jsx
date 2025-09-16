@@ -1,57 +1,41 @@
 import React from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import Particles from "react-particles";
 
 const ParticlesBackground = () => {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
-  const particlesOptions = {
-    background: {
-      color: { value: "#0d1117" }, // deep dark background
-    },
-    fpsLimit: 60,
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "grab" },
-        resize: true,
-      },
-      modes: {
-        grab: { distance: 200, links: { opacity: 0.6 } },
-      },
-    },
-    particles: {
-      color: { value: "#00c8ff" }, // particle color
-      links: {
-        color: "#00c8ff",
-        distance: 150,
-        enable: true,
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 1.2,
-        direction: "none",
-        outModes: { default: "bounce" },
-      },
-      number: {
-        density: { enable: true, area: 900 },
-        value: 80,
-      },
-      opacity: { value: 0.6 },
-      shape: { type: "circle" },
-      size: { value: { min: 1, max: 4 } },
-    },
-    detectRetina: true,
-  };
-
   return (
     <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={particlesOptions}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1, // behind all content
+      }}
+      params={{
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 900 } },
+          color: { value: ["#ff4d6d", "#6b5bff", "#00ffd5"] }, // bright gradient colors
+          shape: { type: "circle" },
+          opacity: { value: 0.8, random: true },
+          size: { value: 5, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.5,
+            width: 1,
+          },
+          move: { enable: true, speed: 2, random: true },
+        },
+        interactivity: {
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+          },
+        },
+        retina_detect: true,
+      }}
     />
   );
 };

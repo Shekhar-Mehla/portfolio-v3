@@ -19,7 +19,13 @@ const Header = () => {
           <span className="text-sky-600">
             <IoIosArrowBack></IoIosArrowBack>
           </span>
-          <span className=" text-gray-900 dark:text-gray-50">
+          <span
+            className=" text-gray-900  dark:text-gray-50"
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              fontSize: "1.8rem",
+            }}
+          >
             {" "}
             Shekhar Code
           </span>

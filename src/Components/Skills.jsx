@@ -22,6 +22,7 @@ import {
   SiTypescript,
   SiNextdotjs,
 } from "react-icons/si";
+import SkillSection from "./reuasableComponent/SkillSection";
 
 const Skills = () => {
   const languages = [
@@ -95,77 +96,23 @@ const Skills = () => {
       </h2>
       <div className="grid md:grid-cols-3 gap-12">
         {/* Languages */}
-        <div>
-          <h3 className="text-xl font-semibold  text-sky-600 mb-6">
-            Languages
-          </h3>
-          <div className="flex text-white flex-wrap justify-center gap-6">
-            {languages.map((skill, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {skill.icon}
-                <p className="mt-2">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        <SkillSection title={"languages"} list={languages}></SkillSection>
         {/* Frontend */}
-        <div>
-          <h3 className="text-xl font-semiboldb text-sky-600 mb-6">Frontend</h3>
-          <div className="flex flex-wrap  text-white justify-center gap-6">
-            {frontend.map((skill, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {skill.icon}
-                <p className="mt-2">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+        <SkillSection title={"Frontend"} list={frontend}></SkillSection>
         {/* Backend */}
-        <div>
-          <h3 className="text-xl font-semibold  text-sky-600 mb-6">
-            Backend & DB
-          </h3>
-          <div className="flex flex-wrap  text-white justify-center gap-6">
-            {backend.map((skill, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {skill.icon}
-                <p className="mt-2">{skill.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <SkillSection title={"Backend && DB"} list={backend}></SkillSection>
       </div>
 
       {/* Tools */}
       <div className="mt-12">
-        <h3 className="text-xl font-semibold text-sky-600 mb-6">
-          Tools & Deployment
-        </h3>
-        <div className="flex flex-wrap  text-white justify-center gap-6">
-          {tools.map((skill, index) => (
-            <div key={index} className="flex flex-col items-center">
-              {skill.icon}
-              <p className="mt-2">{skill.name}</p>
-            </div>
-          ))}
-        </div>
+        <SkillSection title={"Tools"} list={tools}></SkillSection>
+        {/* currentrly learning */}
       </div>
-
-      {/* Currently Learning */}
       <div className="mt-12">
-        <h3 className="text-xl font-semibold text-sky-600  mb-6">
-          Currently Learning
-        </h3>
-        <div className="flex flex-wrap text-white justify-center gap-6">
-          {learning.map((skill, index) => (
-            <div key={index} className="flex flex-col items-center">
-              {skill.icon}
-              <p className="mt-2">{skill.name}</p>
-            </div>
-          ))}
-        </div>
+        <SkillSection
+          title={"Currently Learning"}
+          list={learning}
+        ></SkillSection>
       </div>
     </section>
   );
