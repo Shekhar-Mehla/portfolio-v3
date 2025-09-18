@@ -1,13 +1,6 @@
 /* tailwind css v4.x */
 @import "tailwindcss";
-@plugin "flowbite-react/plugin/tailwindcss";
-@source "../.flowbite-react/class-list.json";
-@import "tailwindcss-animated";
-@plugin "tailwindcss-motion";
-/* src/App.css */
-/* src/App.css */
 
-/* Ensure particles are fixed in background */
 #tsparticles {
   position: fixed !important;
   top: 0;

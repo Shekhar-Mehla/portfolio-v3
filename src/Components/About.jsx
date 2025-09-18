@@ -1,44 +1,97 @@
+// src/Components/About.jsx
 import React from "react";
+import { motion } from "framer-motion";
+import { FaUserGraduate, FaCode, FaProjectDiagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
+// replace with your actual profile picture in /public or /assets
+import ProfileImg from "../assets/resumepick.png";
+
+const stats = [
+  { icon: <FaUserGraduate size={32} />, label: "Graduate", value: "IT" },
+  { icon: <FaCode size={32} />, label: "Experience", value: "1+ Years" },
+  { icon: <FaProjectDiagram size={32} />, label: "Projects", value: "10+" },
+];
 
 const About = () => {
   return (
-    <div id="about">
-      <div className="p-3 ">
-        <h1 className=" font-bold text-4xl text-amber-400 ">About Me</h1>
-        <div className="p-4">
-          <div className="flex gap-5 justify-around">
-            <div className="text-sky-600 flex flex-col gap-2 justify-center items-center">
-              <div className="text-2xl font-bold lg:text-4xl">IT</div>
-              <div>Graduate</div>
-            </div>
-            <div className="text-sky-600 flex flex-col gap-2 justify-center items-center ">
-              <div className="text-2xl font-bold lg:text-4xl">Experience</div>
-              <div>1+ Yrs Coding</div>
-            </div>
-            <div className="text-sky-600 flex flex-col gap-2 justify-center items-center">
-              <div className="text-2xl font-bold lg:text-4xl">Projects</div>
-              <div>10+</div>
-            </div>
+    <section
+      id="about"
+      className="relative py-16 px-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white"
+    >
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+        {/* Profile Image */}
+        <motion.div
+          className="flex justify-center md:justify-start"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <img
+            src={ProfileImg}
+            alt="Shekhar Singh"
+            className="size-100 hidden md:block  object-cover rounded-2xl shadow-lg 
+                       hover:scale-105 hover:shadow-xl transition-transform duration-500"
+          />
+        </motion.div>
+
+        {/* Content */}
+        <motion.div
+          className="flex flex-col gap-6"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Title */}
+          <h2 className="text-4xl font-extrabold text-amber-400">About Me</h2>
+
+          {/* Bio */}
+          <p className="text-lg text-gray-200 leading-relaxed">
+            Hi, I’m{" "}
+            <span className="text-sky-400 font-semibold">Shekhar Singh</span>, a
+            passionate full-stack developer specializing in the{" "}
+            <span className="text-amber-400">MERN</span> stack. I love building
+            scalable, user-friendly applications and solving real-world problems
+            with clean code.
+          </p>
+          <p className="text-lg text-gray-300">
+            I thrive in collaborative environments and aspire to become a lead
+            developer in the next five years, mentoring others and contributing
+            to open-source projects.
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-6">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={i}
+                className="flex flex-col items-center bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-lg transition"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+              >
+                <div className="text-sky-500 mb-2">{stat.icon}</div>
+                <div className="text-xl font-bold">{stat.value}</div>
+                <div className="text-gray-400 text-sm">{stat.label}</div>
+              </motion.div>
+            ))}
           </div>
-        </div>
-        <div className="text-gray-50 text-xl">
-          I am <span className="text-sky-600">Shekhar Singh</span>, a recent
-          graduate specializing in the MERN stack. I’m passionate about creating
-          user-friendly apps with MongoDB, Express.js, React.js, and Node.js. I
-          enjoy solving coding challenges and working on exciting projects. I
-          thrive in team environments and look forward to real-world projects.
-          In five years, I see myself as a lead developer, guiding teams and
-          working on innovative solutions. I’m also excited to mentor others and
-          contribute to open-source projects.
-        </div>
-        <div className="flex items-center justify-center text-gray-100 mt-4 font-bold">
-          <Link className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            Lets Connect
-          </Link>
-        </div>
+
+          {/* CTA */}
+          <div className="mt-4">
+            <Link
+              to="/contact"
+              className="px-6 py-3 text-lg font-semibold rounded-xl 
+                         bg-gradient-to-r from-sky-500 to-blue-700 
+                         hover:from-blue-600 hover:to-sky-700 
+                         transition-all duration-300 shadow-lg"
+            >
+              Let’s Connect
+            </Link>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,11 +4,11 @@ import { ThemeConfig } from "flowbite-react";
 
 import ParticlesBackground from "./Components/ParticlesBackground";
 import ScrollItem from "./Components/ScrollItem";
-
+import Layout from "./Components/Layout";
 import Header from "./Components/Header";
 import Hero from "./Components/Hero";
 import About from "./Components/About";
-import Experience from "./Components/Experience";
+// import Experience from "./Components/Experience";
 import Skills from "./Components/Skills";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
@@ -20,33 +20,37 @@ const App = () => {
   return (
     <BrowserRouter>
       <ThemeConfig dark={true} />
-
-      {/* Particle Background */}
       <ParticlesBackground />
 
-      {/* Main content above particles */}
-      <div className="relative z-10 dark:bg-gray-900 flex flex-col gap-10 px-5">
-        <ScrollItem>
-          <Header />
-        </ScrollItem>
-        <ScrollItem>
-          <Hero />
-        </ScrollItem>
-        <ScrollItem>
-          <About />
-        </ScrollItem>
-        <ScrollItem>
-          <Experience />
-        </ScrollItem>
-        <ScrollItem>
-          <Skills />
-        </ScrollItem>
-        <ScrollItem>
-          <Projects />
-        </ScrollItem>
-        <ScrollItem>
-          <Contact />
-        </ScrollItem>
+      {/* Full-width header */}
+      <ScrollItem>
+        <Header />
+      </ScrollItem>
+
+      {/* Main content with consistent layout */}
+      <div className="relative z-10 dark:bg-gray-900">
+        <Layout>
+          <ScrollItem>
+            <Hero />
+          </ScrollItem>
+          <ScrollItem>
+            <About />
+          </ScrollItem>
+          {/* <ScrollItem>
+            <Experience />
+          </ScrollItem> */}
+          <ScrollItem>
+            <Skills />
+          </ScrollItem>
+          <ScrollItem>
+            <Projects />
+          </ScrollItem>
+          <ScrollItem>
+            <Contact />
+          </ScrollItem>
+        </Layout>
+
+        {/* Footer stays outside layout for full-width */}
         <ScrollItem>
           <Footer />
         </ScrollItem>

@@ -2,6 +2,7 @@ import { Avatar } from "flowbite-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import rebtecklogo from "../assets/rebtecklogo.jpg";
+import { FaServer, FaCode, FaTools } from "react-icons/fa";
 
 const Experience = () => {
   return (
@@ -21,16 +22,34 @@ const Experience = () => {
         <div className="text-3xl text-sky-600">Full Stack Developer</div>
         <div className="text-2xl text-amber-400">
           Overview:
-          <div className="text-gray-50 text-xl">
-            ✅ Backend: Express JS, Node JS, JWT, cookies, middleware (e.g.,
-            Joi), file uploads (Cloudinary, multer), email (Nodemailer),
-            Passport.js, Stripe, Mongoose, and MongoDB.<br></br>✅ Frontend:
-            HTML5, CSS3, SCSS, JavaScript, TypeScript, Bootstrap, Tailwind,
-            React, Redux, UI/UX design, React-router-dom, Toastify, Axios,
-            React-icons, GoogleFonts, FontAwesome.<br></br>✅ Others: npm, yarn,
-            Trello, Jira, Agile methodology, AWS, Docker, Render, Cyclic,
-            Vercel, Git/GitHub, Slack, and teamwork.
-          </div>
+          <ul className="space-y-6 text-gray-50 text-lg leading-relaxed fade-in">
+            <li className="flex items-start gap-3">
+              <FaServer className="mt-1 text-sky-400 text-xl shrink-0" />
+              <span>
+                <span className="font-semibold text-sky-300">Backend:</span>{" "}
+                Express JS, Node JS, JWT, cookies, middleware (e.g., Joi), file
+                uploads (Cloudinary, multer), email (Nodemailer), Passport.js,
+                Stripe, Mongoose, and MongoDB.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <FaCode className="mt-1 text-sky-400 text-xl shrink-0" />
+              <span>
+                <span className="font-semibold text-sky-300">Frontend:</span>{" "}
+                HTML5, CSS3, SCSS, JavaScript, TypeScript, Bootstrap, Tailwind,
+                React, Redux, UI/UX design, React-router-dom, Toastify, Axios,
+                React-icons, GoogleFonts, FontAwesome.
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <FaTools className="mt-1 text-sky-400 text-xl shrink-0" />
+              <span>
+                <span className="font-semibold text-sky-300">Others:</span> npm,
+                yarn, Trello, Jira, Agile methodology, AWS, Docker, Render,
+                Cyclic, Vercel, Git/GitHub, Slack, and teamwork.
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
