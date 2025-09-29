@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import React, { useState } from "react";
 
 const TypoAnimation = () => {
-  const [textColor, setTextColor] = useState("yellow");
+  const [textColor, setTextColor] = useState("#ffb900");
   return (
     <TypeAnimation
       sequence={[

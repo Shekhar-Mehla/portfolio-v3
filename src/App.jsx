@@ -15,6 +15,7 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 
 import "./App.css";
+import Education from "./Components/Education";
 
 const App = () => {
   return (
@@ -35,6 +36,9 @@ const App = () => {
           </ScrollItem>
           <ScrollItem>
             <About />
+          </ScrollItem>
+          <ScrollItem>
+            <Education />
           </ScrollItem>
           {/* <ScrollItem>
             <Experience />

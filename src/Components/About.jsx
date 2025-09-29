@@ -1,10 +1,7 @@
-// src/Components/About.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUserGraduate, FaCode, FaProjectDiagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-// replace with your actual profile picture in /public or /assets
 import ProfileImg from "../assets/resumepick.png";
 
 const stats = [
@@ -17,9 +14,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-16 px-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white"
+      className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-12 items-center">
         {/* Profile Image */}
         <motion.div
           className="flex justify-center md:justify-start"
@@ -30,8 +27,7 @@ const About = () => {
           <img
             src={ProfileImg}
             alt="Shekhar Singh"
-            className="size-100 hidden md:block  object-cover rounded-2xl shadow-lg 
-                       hover:scale-105 hover:shadow-xl transition-transform duration-500"
+            className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-500 hidden md:block"
           />
         </motion.div>
 
@@ -42,10 +38,8 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Title */}
           <h2 className="text-4xl font-extrabold text-amber-400">About Me</h2>
 
-          {/* Bio */}
           <p className="text-lg text-gray-200 leading-relaxed">
             Hi, I’m{" "}
             <span className="text-sky-400 font-semibold">Shekhar Singh</span>, a
@@ -61,7 +55,7 @@ const About = () => {
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -78,13 +72,10 @@ const About = () => {
           </div>
 
           {/* CTA */}
-          <div className="mt-4">
+          <div className="mt-6">
             <Link
               to="/contact"
-              className="px-6 py-3 text-lg font-semibold rounded-xl 
-                         bg-gradient-to-r from-sky-500 to-blue-700 
-                         hover:from-blue-600 hover:to-sky-700 
-                         transition-all duration-300 shadow-lg"
+              className="inline-block px-6 py-3 text-base font-semibold rounded-xl bg-gradient-to-r from-sky-500 to-blue-700 hover:from-blue-600 hover:to-sky-700 transition-all duration-300 shadow-lg text-center"
             >
               Let’s Connect
             </Link>

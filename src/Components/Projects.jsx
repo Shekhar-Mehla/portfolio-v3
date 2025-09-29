@@ -1,172 +1,166 @@
-// import React from "react";
-
-// import { TabItem, Tabs } from "flowbite-react";
-// import { HiAdjustments, HiClipboardList, HiUserCircle } from "react-icons/hi";
-// import { MdDashboard } from "react-icons/md";
-// import { FaJs } from "react-icons/fa";
-// import ProjectCard from "./reuasableComponent/ProjectCard";
-
-// const Projects = () => {
-//   return (
-//     <div id="projects">
-//       <h2 className=" font-bold text-4xl text-amber-400  mb-10 text-start">
-//         My Work
-//       </h2>
-//       <div>
-//         <Tabs aria-label="Tabs with icons" variant="underline">
-//           <TabItem active title="Full stack(MERN)">
-//             <div className="font-medium md:flex text-gray-800 dark:text-white">
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//             </div>
-
-//           </TabItem>
-//           <TabItem active title="React">
-//             <div className="font-medium md:flex text-gray-800 dark:text-white">
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//             </div>
-
-//           </TabItem>
-//           <TabItem active title="javascript">
-//             <div className="font-medium md:flex text-gray-800 dark:text-white">
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//               <ProjectCard></ProjectCard>
-//             </div>
-
-//           </TabItem>
-
-//         </Tabs>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Projects;
-
 import {
   FaGithub,
   FaExternalLinkAlt,
   FaReact,
   FaNodeJs,
-  FaCss3Alt,
+  FaLock,
 } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss } from "react-icons/si";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import {
+  SiMongodb,
+  SiTailwindcss,
+  SiBootstrap,
+  SiShadcnui,
+  SiTypescript,
+  SiExpress,
+  SiJsonwebtokens,
+} from "react-icons/si";
+import { motion } from "framer-motion";
+import fitAura from "../assets/fitAura.png";
+import lms from "../assets/lms.png";
 
 const projects = [
   {
-    title: "Portfolio Website",
+    title: "Library Management System (LMS)",
     description:
-      "A personal portfolio showcasing my skills, projects, and contact info. Built with React and Tailwind for a sleek, responsive UI.",
-    tech: [<FaReact />, <SiTailwindcss />, <FaCss3Alt />],
-    image:
-      "https://images.unsplash.com/photo-1618005198919-d3d4b5a3f1d4?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/example/portfolio",
-    live: "https://example.com/portfolio",
-    duration: "3 weeks",
-    year: "2023",
+      "A full-stack MERN application for managing books, users, and borrowing workflows. Built with role-based access, secure authentication, and responsive UI using Bootstrap 5.",
+    role: "Solo Developer · Bootcamp Project",
+    impact:
+      "Implemented modular RESTful APIs, JWT-based auth, and admin/client role separation. Deployed on Vercel with production-ready architecture.",
+    tech: [
+      "React",
+      "Bootstrap 5",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "bcrypt",
+    ],
+    icons: [
+      <FaReact />,
+      <SiBootstrap />,
+      <FaNodeJs />,
+      <SiExpress />,
+      <SiMongodb />,
+      <SiJsonwebtokens />,
+      <FaLock />,
+    ],
+    image: lms, // Save screenshot in public/images
+    repo: "https://github.com/your-username/library-system", // Replace with actual repo
+    live: "https://front-end-lms-bootrap.vercel.app/",
   },
   {
-    title: "E-commerce Backend",
+    title: "FitAura E-Commerce Platform",
     description:
-      "RESTful API with JWT auth, Stripe payments, and product management. Built with Node.js and MongoDB for scalable performance.",
-    tech: [<FaNodeJs />, <SiMongodb />],
-    image:
-      "https://images.unsplash.com/photo-1605902711622-cfb43c44367e?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/example/ecommerce-api",
-    live: "https://example.com/store",
-    duration: "2.5 weeks",
-    year: "2024",
+      "A full-stack e-commerce platform built with MERN stack, Tailwind CSS, and Shadcn UI. Features include product catalog, cart, Stripe checkout, and user profiles.",
+    role: "Tech Lead · Bootcamp Team Project",
+    impact:
+      "Integrated JWT auth, Stripe payments, and CORS-secured APIs. Deployed frontend on Vercel and backend on Render.",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Stripe",
+    ],
+    icons: [
+      <FaReact />,
+      <SiTailwindcss />,
+      <SiShadcnui />,
+      <FaNodeJs />,
+      <SiExpress />,
+      <SiMongodb />,
+      <SiJsonwebtokens />,
+    ],
+    image: fitAura, // Save screenshot in public/images
+    repo: "https://github.com/your-username/fitaura-client", // Replace with actual repo
+    live: "https://client-frontend-gamma.vercel.app/",
   },
 ];
 
 const Projects = () => {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
   return (
     <section
       id="projects"
-      className="bg-gray-950 text-white py-20 px-4 sm:px-6 lg:px-12"
+      className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8"
     >
-      <h2 className="text-4xl font-bold text-center mb-16">Project Journey</h2>
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          className="text-4xl font-bold text-amber-400 mb-12 text-start"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Projects
+        </motion.h2>
 
-      <div className="space-y-24">
-        {projects.map((project, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <div
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
               key={index}
-              className={`flex flex-col lg:flex-row items-center gap-12 ${
-                isEven ? "" : "lg:flex-row-reverse"
-              }`}
-              data-aos="fade-up"
+              className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
             >
-              {/* Image */}
-              <div className="w-full lg:w-1/2 h-[250px] rounded-lg overflow-hidden shadow-xl transition-transform duration-300 hover:scale-105">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
+              <img
+                src={project.image}
+                alt={`${project.title} screenshot`}
+                className="w-full h-48 object-cover rounded-lg mb-4 border border-gray-700"
+              />
+
+              <h3 className="text-xl font-semibold mb-2 text-white">
+                {project.title}
+              </h3>
+              <p className="text-gray-300 mb-2">{project.description}</p>
+              <p className="text-sm text-gray-400 mb-2">
+                <strong>Role:</strong> {project.role}
+              </p>
+              <p className="text-sm text-gray-400 mb-4">
+                <strong>Impact:</strong> {project.impact}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="text-xs bg-gray-700 px-2 py-1 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-              {/* Content */}
-              <div className="w-full lg:w-1/2">
-                <h3 className="text-3xl font-semibold mb-2">{project.title}</h3>
-
-                {/* Duration + Year */}
-                <span className="inline-block bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full mb-3">
-                  🕒 {project.duration} · {project.year}
-                </span>
-
-                <p className="text-gray-300 mb-4">{project.description}</p>
-
-                {/* Tech Stack */}
-                <div className="flex gap-3 text-sky-400 text-2xl mb-4">
-                  {project.tech.map((icon, i) => (
-                    <span
-                      key={i}
-                      className="hover:text-sky-300 transition duration-200"
-                    >
-                      {icon}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Buttons */}
-                <div className="flex gap-4 mt-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded text-sm transition duration-200"
-                  >
-                    <FaGithub /> GitHub
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-sky-600 hover:bg-sky-500 rounded text-sm transition duration-200"
-                  >
-                    <FaExternalLinkAlt /> Live View
-                  </a>
-                </div>
+              <div className="flex gap-3 text-xl text-sky-400">
+                {project.icons.map((icon, i) => (
+                  <span key={i}>{icon}</span>
+                ))}
               </div>
-            </div>
-          );
-        })}
+
+              <div className="flex gap-4 mt-4">
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-sky-400 hover:text-sky-300 flex items-center gap-1"
+                >
+                  <FaGithub /> Code
+                </a>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-sky-400 hover:text-sky-300 flex items-center gap-1"
+                >
+                  <FaExternalLinkAlt /> Live
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

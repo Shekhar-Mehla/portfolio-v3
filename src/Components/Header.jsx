@@ -1,13 +1,5 @@
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarToggle,
-  NavbarCollapse,
-  NavbarLink,
-} from "flowbite-react";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { RxSlash } from "react-icons/rx";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
@@ -25,17 +17,24 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      for (const item of navItems) {
-        const section = document.querySelector(item.href);
-        if (section) {
-          const offsetTop = section.offsetTop - 120;
-          const offsetBottom = offsetTop + section.offsetHeight;
-          if (scrollY >= offsetTop && scrollY < offsetBottom) {
-            setActiveSection(item.href);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          for (const item of navItems) {
+            const section = document.querySelector(item.href);
+            if (section) {
+              const offsetTop = section.offsetTop - 120;
+              const offsetBottom = offsetTop + section.offsetHeight;
+              if (scrollY >= offsetTop && scrollY < offsetBottom) {
+                setActiveSection(item.href);
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -44,27 +43,18 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gray-900 shadow-md">
-      <Navbar fluid rounded className="w-full px-4 sm:px-6 lg:px-8">
-        {/* Brand */}
-        <NavbarBrand as={Link} to="/" className="flex items-center gap-2">
-          <IoIosArrowBack className="text-sky-500 text-2xl" />
-          <span
-            style={{
-              fontFamily: "'Dancing Script', cursive",
-              fontSize: "1.8rem",
-            }}
-            className="text-white"
-          >
-            Shekhar Code
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+        {/* Left: Brand */}
+        <Link to="/" className="flex items-center gap-2">
+          <IoIosArrowBack className="text-sky-500 text-xl" />
+          <span className="text-white font-bold text-2xl tracking-wide">
+            Shekhar<span className="text-sky-500">Code</span>
           </span>
-          <span className="flex text-sky-500 text-xl">
-            <RxSlash />
-            <IoIosArrowForward />
-          </span>
-        </NavbarBrand>
+          <IoIosArrowForward className="text-sky-500 text-xl" />
+        </Link>
 
-        {/* Social Icons + Toggle */}
-        <div className="flex items-center gap-4">
+        {/* Center: Social Icons */}
+        <div className="hidden md:flex gap-4">
           <a
             href="https://github.com/Shekhar-Mehla"
             target="_blank"
@@ -83,37 +73,40 @@ const Header = () => {
           >
             <FaLinkedin />
           </a>
-
-          {/* Custom Toggle Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white text-2xl focus:outline-none"
-            aria-label="Toggle navigation"
-          >
-            ☰
-          </button>
         </div>
 
-        {/* Nav Links */}
-        <NavbarCollapse
-          className={`flex flex-col lg:flex-row  lg:items-center lg:gap-x-8 ${
-            isOpen ? "block" : "hidden"
-          } lg:flex`}
-        >
-          {navItems.map(({ label, href }) => (
-            <NavbarLink
-              key={label}
-              href={href}
-              onClick={() => setIsOpen(false)}
-              className={`relative lg:mx-3 text-white transition hover:text-sky-400 ${
-                activeSection === href ? "text-sky-400 font-semibold" : ""
-              }`}
-            >
-              <span className="hover-underline">{label}</span>
-            </NavbarLink>
-          ))}
-        </NavbarCollapse>
-      </Navbar>
+        {/* Right: Nav + Toggle */}
+        <div className="flex items-center gap-4">
+          {/* Toggle Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-white text-2xl focus:outline-none transition-transform duration-300 transform"
+            aria-label="Toggle navigation"
+          >
+            {isOpen ? "✕" : "☰"}
+          </button>
+
+          {/* Nav Links */}
+          <nav
+            className={`absolute top-full left-0 w-full bg-gray-900 md:static md:w-auto md:bg-transparent transition-all duration-300 ease-in-out overflow-hidden md:flex md:items-center md:gap-x-6 ${
+              isOpen ? "max-h-screen opacity-100 p-4" : "max-h-0 opacity-0"
+            } md:max-h-full md:opacity-100`}
+          >
+            {navItems.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className={`block text-white transition hover:text-sky-400 py-2 md:py-0 ${
+                  activeSection === href ? "text-sky-400 font-semibold" : ""
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };

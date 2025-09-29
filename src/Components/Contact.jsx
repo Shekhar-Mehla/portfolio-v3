@@ -38,17 +38,22 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="bg-gray-950 text-white py-20 px-4 sm:px-6 lg:px-12"
+      className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8"
     >
-      <div className="max-w-2xl mx-auto" data-aos="fade-up">
-        <h2 className="text-4xl font-bold text-center mb-6">Contact Me</h2>
-        <p className="text-gray-400 text-center mb-12">
-          Got a project, collaboration, or just want to say hi? Drop me a
-          message below.
-        </p>
+      <div className="max-w-6xl mx-auto" data-aos="fade-up">
+        {/* Heading & Intro */}
+        <div className="mb-12">
+          <h2 className="text-4xl font-bold text-amber-400 mb-4 text-start">
+            Contact Me
+          </h2>
+          <p className="text-gray-400 text-start">
+            Got a project, collaboration, or just want to say hi? Drop me a
+            message below.
+          </p>
+        </div>
 
+        {/* Form */}
         <form ref={form} onSubmit={sendEmail} className="space-y-6">
-          {/* Name */}
           <div>
             <label
               htmlFor="name"
@@ -65,7 +70,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label
               htmlFor="email"
@@ -82,7 +86,6 @@ const Contact = () => {
             />
           </div>
 
-          {/* Message */}
           <div>
             <label
               htmlFor="message"
@@ -99,7 +102,6 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full py-3 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded transition duration-200"
@@ -107,7 +109,6 @@ const Contact = () => {
             Send Message
           </button>
 
-          {/* Feedback */}
           {sent && (
             <p className="text-green-400 text-sm mt-4 text-center">
               ✅ Message sent successfully!
