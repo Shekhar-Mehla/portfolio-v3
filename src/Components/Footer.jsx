@@ -27,7 +27,7 @@ const Footer = () => {
             onClick={handleEmailClick}
             className="text-sm text-sky-400 hover:text-sky-300 transition duration-200"
           >
-            📫 shekharmehla279@gmail.com
+            📫 smehla147@gmail.com
           </button>
         </div>
 
